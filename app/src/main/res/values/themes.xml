@@ -22,4 +22,12 @@
     <style name="Theme.AUT2_03.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.AUT2_03.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:statusBarColor">@color/teal_200</item>
+    </style>
 </resources>

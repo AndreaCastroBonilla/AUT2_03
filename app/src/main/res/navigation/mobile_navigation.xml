@@ -3,23 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.aut2_03.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.aut2_03.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/activity1"
+        android:name="com.example.aut2_03.Activity1"
+        android:label="Database"
+        tools:layout="@layout/fragment_activity1" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.aut2_03.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/activity2"
+        android:name="com.example.aut2_03.Activity2"
+        android:label="List"
+        tools:layout="@layout/fragment_activity2" />
+    <fragment
+        android:id="@+id/activity3"
+        android:name="com.example.aut2_03.Activity3"
+        android:label="Recorder"
+        tools:layout="@layout/fragment_activity3" />
+    <fragment
+        android:id="@+id/activity4"
+        android:name="com.example.aut2_03.Activity4"
+        android:label="Connections"
+        tools:layout="@layout/fragment_activity4" />
+
+
 </navigation>

@@ -23,7 +23,7 @@
 
     <style name="Theme.AUT2_03.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="colorPrimary">@color/purple_700</item>
         <item name="colorPrimaryDark">@color/black</item>

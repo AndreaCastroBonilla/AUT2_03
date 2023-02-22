@@ -4,12 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/drawable/bg_gradient.xml" value="0.2595" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2035" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
         <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/drawable/splash_screen.xml" value="0.218" />
         <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/app_bar_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/fragment_activity1.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/fragment_activity2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/fragment_activity3.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/fragment_activity4.xml" value="0.1" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/fragment_gallery.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/fragment_home.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/fragment_slideshow.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/menu/main.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2035" />
+        <entry key="..\:/Users/Andrea/AndroidStudioProjects/AUT2_03/app/src/main/res/mipmap-anydpi-v26/ic_travel_launcher_round.xml" value="0.2035" />
       </map>
     </option>
   </component>

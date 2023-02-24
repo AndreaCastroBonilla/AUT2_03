@@ -1,12 +1,19 @@
 package com.example.aut2_03;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import db.DbHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,6 +56,8 @@ public class Activity1 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -60,5 +69,27 @@ public class Activity1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_activity1, container, false);
+    }
+
+    private Button createBtn;
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        createBtn = (Button) getView().findViewById(R.id.crearButton);
+        createBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DbHelper dbHelper = new DbHelper(getContext());
+                SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+
+                if(dbHelper != null){
+                    Toast.makeText(getContext(),"BASE DE DATOS CREADA :)", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getContext(),"ERROR AL CREAR LA BASE DE DATOS :(", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }

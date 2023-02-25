@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem) {
        String msg = "";
        switch (menuItem.getItemId()){
-           case R.id.action_about:
-               Toast.makeText(this, "Andrea Castro Bonilla", Toast.LENGTH_LONG).show();
-               break;
+
            case R.id.action_exit:
                finishAndRemoveTask();
                break;

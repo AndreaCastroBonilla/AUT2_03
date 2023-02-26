@@ -1,5 +1,6 @@
 package com.example.aut2_03;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -158,9 +159,5 @@ public class Activity1 extends Fragment {
         txtIdioma.setText("");
     }
 
-    private void newView(){
-        Intent intent = new Intent(getActivity(),Activity1_Add.class);
-        startActivity(intent);
-    }
 
 }

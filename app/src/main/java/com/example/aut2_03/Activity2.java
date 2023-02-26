@@ -2,11 +2,21 @@ package com.example.aut2_03;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+
+import db.DbTravel;
+import db.adaptadores.ListaTravelAdapter;
+import db.entidades.Travel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +70,21 @@ public class Activity2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_activity2, container, false);
+    }
+
+    RecyclerView listaTravel;
+    ArrayList<Travel> listaArrayTravel;
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        listaTravel = getView().findViewById(R.id.listaTravel);
+        listaTravel.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        DbTravel dbTravel = new DbTravel(getContext());
+        listaArrayTravel = new ArrayList<Travel>();
+
+        ListaTravelAdapter adapter = new ListaTravelAdapter(dbTravel.mostrarDatos());
+        listaTravel.setAdapter(adapter);
+
     }
 }

@@ -2,9 +2,14 @@ package db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+
+import db.entidades.Travel;
 
 public class DbTravel extends DbHelper{
 
@@ -33,5 +38,49 @@ public class DbTravel extends DbHelper{
         }
 
         return res;
+    }
+
+    public ArrayList<Travel> mostrarDatos(){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ArrayList<Travel> listaTravel = new ArrayList<Travel>();
+        Travel travel = null;
+        Cursor cursorTravel = null;
+
+        cursorTravel = db.rawQuery("SELECT * FROM " + TABLE_TRAVEL,null);
+
+        if(cursorTravel.moveToFirst()){
+            do{
+                travel = new Travel();
+                travel.setId(cursorTravel.getString(0));
+                travel.setNombre(cursorTravel.getString(1));
+                travel.setCapital(cursorTravel.getString(2));
+                travel.setIdioma(cursorTravel.getString(3));
+                listaTravel.add(travel);
+            }while(cursorTravel.moveToNext());
+        }
+        cursorTravel.close();
+        return listaTravel;
+    }
+
+    public Travel verDato(int id){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        Travel travel = null;
+        Cursor cursorTravel = null;
+
+        cursorTravel = db.rawQuery("SELECT * FROM " + TABLE_TRAVEL + " WHERE id = " + id + "LIMIT 1",null);
+
+        if(cursorTravel.moveToFirst()){
+            travel = new Travel();
+            travel.setId(cursorTravel.getString(0));
+            travel.setNombre(cursorTravel.getString(1));
+            travel.setCapital(cursorTravel.getString(2));
+            travel.setIdioma(cursorTravel.getString(3));
+        }
+        cursorTravel.close();
+        return travel;
     }
 }

@@ -6,48 +6,88 @@
     android:layout_height="match_parent"
     android:background="@color/act_background"
     android:orientation="vertical"
-    tools:context=".Activity1">
+    tools:context=".VerActivity">
 
+    <TextView
+        android:id="@+id/viewEditId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Código:"
+        android:textSize="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
     <EditText
         android:id="@+id/textId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:hint="Código:"
-        android:layout_marginTop="15dp"
+        android:labelFor="@+id/viewEditId"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/viewEditNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="País:"
+        android:textSize="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
     <EditText
         android:id="@+id/textNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:hint="País:"
-        android:layout_marginTop="15dp"
+        android:labelFor="@+id/viewEditNombre"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/viewEditCapital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capital:"
+        android:textSize="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
     <EditText
         android:id="@+id/textPais"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:hint="Capital:"
-        android:layout_marginTop="15dp"
+        android:labelFor="@+id/viewEditCapital"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/viewEditIdioma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capital:"
+        android:textSize="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
     <EditText
         android:id="@+id/textIdioma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:hint="Idioma:"
-        android:layout_marginTop="15dp"
+        android:labelFor="@+id/viewEditIdioma"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"/>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -76,8 +116,6 @@
 
 
     </FrameLayout>
-
-
+    </FrameLayout>
 
 </LinearLayout>
-

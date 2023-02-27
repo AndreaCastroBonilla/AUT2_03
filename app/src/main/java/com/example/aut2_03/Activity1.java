@@ -146,6 +146,8 @@ public class Activity1 extends Fragment {
                 return  true;
             case R.id.modify:
                 Toast.makeText(getContext(), "MODIFY", Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(getContext(),EditarActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

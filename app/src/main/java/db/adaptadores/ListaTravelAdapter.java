@@ -59,7 +59,7 @@ public class ListaTravelAdapter extends RecyclerView.Adapter<ListaTravelAdapter.
             viewCapital = itemView.findViewById(R.id.viewCapital);
             viewIdioma = itemView.findViewById(R.id.viewIdioma);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Context context = view.getContext();
@@ -69,6 +69,8 @@ public class ListaTravelAdapter extends RecyclerView.Adapter<ListaTravelAdapter.
                     context.startActivity(intent);
                 }
             });
+
+             */
         }
     }
 }

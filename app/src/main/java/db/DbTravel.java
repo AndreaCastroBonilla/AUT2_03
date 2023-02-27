@@ -83,4 +83,23 @@ public class DbTravel extends DbHelper{
         cursorTravel.close();
         return travel;
     }
+
+    public boolean modificarDato(int i, String id, String nombre, String capital, String idioma){
+        boolean correcto = false;
+
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        try{
+            db.execSQL("UPDATE " + TABLE_TRAVEL + "SET id = '"+id+"',nombre = '"+nombre+"',capital = '"+capital+"',idioma = '"+idioma+"' WHERE i = '"+i+"'");
+            correcto = true;
+        }catch(Exception exception){
+            exception.toString();
+            correcto = false;
+        } finally {
+            db.close();
+        }
+
+        return correcto;
+    }
 }

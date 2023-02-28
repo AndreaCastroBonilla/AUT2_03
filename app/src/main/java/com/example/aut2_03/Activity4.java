@@ -1,12 +1,27 @@
 package com.example.aut2_03;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.example.aut2_03.fragments.Fragment1;
+import com.example.aut2_03.fragments.Fragment2;
+import com.example.aut2_03.fragments.Fragment3;
+import com.example.aut2_03.fragments.ViewPagerAdapter;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +75,42 @@ public class Activity4 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_activity4, container, false);
+    }
+
+
+    ViewPagerAdapter viewPagerAdapter;
+    ViewPager2 viewPager2;
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewPager2 = getView().findViewById(R.id.viewPager2);
+        viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), getLifecycle());
+
+        //Añadir Fragments
+        viewPagerAdapter.addFragment(new Fragment1());
+        viewPagerAdapter.addFragment(new Fragment2());
+        viewPagerAdapter.addFragment(new Fragment3());
+
+        viewPager2.setAdapter(viewPagerAdapter);
+
+        TabLayout tabLayout = getView().findViewById(R.id.tabLayout);
+        new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position){
+                    case 0:
+                        tab.setText("RESOLUTION");
+                        break;
+                    case 1:
+                        tab.setText("F2");
+                        break;
+                    case 3:
+                        tab.setText("F3");
+                        break;
+                }
+
+            }
+        }).attach();
+
     }
 }

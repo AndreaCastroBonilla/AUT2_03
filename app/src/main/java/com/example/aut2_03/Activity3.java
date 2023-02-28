@@ -4,9 +4,12 @@ import static android.os.Environment.getExternalStorageDirectory;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,9 +18,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -78,48 +84,92 @@ public class Activity3 extends Fragment {
     }
 
 
-    private MediaRecorder grabadora = null;
-    private String ruta = null;
-    private ImageView imgGrabar = null;
+    private MediaRecorder grabacion;
+    private String archivoSalida = null;
+    private Button btnRecorder,btnPlay;
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        imgGrabar = getView().findViewById(R.id.imageStop);
+        btnRecorder = getView().findViewById(R.id.btnStop);
         String[]arrayPermitions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO};
 
-        if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(),Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(getActivity(),arrayPermitions,1000);
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO}, 1000);
+            Toast.makeText(getContext(), "...", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(getContext(), ":(...", Toast.LENGTH_SHORT).show();
         }
+
 
     }
 
-    @SuppressLint("WrongConstant")
-    public void grabar(View view){
-        if(grabadora == null){
-            ruta = getExternalStorageDirectory().getAbsolutePath().toString() + "/grabacion.mp3";
-            grabadora = new MediaRecorder();
-            grabadora.setAudioSource(MediaRecorder.AudioSource.MIC);
-            grabadora.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-            grabadora.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-            grabadora.setOutputFile(ruta);
+   /* public void grabar(View view){
+        if(grabacion == null){
+            archivoSalida = Environment.getExternalStorageDirectory().getAbsolutePath() + "/grabacion.mp3";
+            grabacion = new MediaRecorder();
+            grabacion.setAudioSource(MediaRecorder.AudioSource.MIC);
+            grabacion.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            grabacion.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_WB);
+            grabacion.setOutputFile(archivoSalida);
 
             try{
-                grabadora.prepare();
-                grabadora.start();
-                imgGrabar.setBackgroundColor(Color.rgb(255,0,0));
+                grabacion.prepare();
+                grabacion.start();
+                //btnRecorder.setBackgroundColor(Color.rgb(255,0,0));
                 Toast.makeText(getContext(), "GRABANDO...", Toast.LENGTH_SHORT).show();
+
             }catch (IOException e) {
-                Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
             }
+
+
+
+        }else if(grabacion != null){
+            grabacion.stop();
+            grabacion.release();
+            grabacion = null;
+           // btnRecorder.setBackgroundColor(Color.rgb(0,0,255));
+            Toast.makeText(getContext(), "GRABANCIÓN FINALIZADA :)", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public void play(View view){
+        if(archivoSalida != null){
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            try{
+                mediaPlayer.setDataSource(archivoSalida);
+                mediaPlayer.prepare();
+                mediaPlayer.start();
+                Toast.makeText(getContext(), "Reproduciendo audio :)", Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+            }
+
         }else {
-            try {
-                grabadora.stop();
-                grabadora.release();
-                imgGrabar.setBackgroundColor(Color.rgb(0,0,255));
-                Toast.makeText(getContext(), "GRABANCIÓN FINALIZADA :)", Toast.LENGTH_SHORT).show();
-            } catch (Exception ex) {
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(getContext(), "Necesita grabar audio :)", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+*/
+
+    int peticion = 1;
+    Uri url1;
+   public void grabar(View v) {
+       Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+       startActivityForResult(intent, peticion);
+   }
+
+    public void reproducir(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), url1);
+        mediaPlayer.start();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == 0 && requestCode == peticion) {
+            url1 = data.getData();
         }
     }
+
 }

@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mediumTurquoise">#48D1CC</color>
     <color name="salmon">#FA8072</color>
+    <color name="light_salmon">#FFC5B7</color>
     <color name="side_nav_bar_endColor">#1ABC9C</color>
     <color name="side_nav_bar_centerColor">#009688</color>
     <color name="act_background">#99E7DD</color>

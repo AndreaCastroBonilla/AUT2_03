@@ -12,7 +12,7 @@
     <string name="menu_act1">Database</string>
     <string name="menu_act2">List</string>
     <string name="menu_act3">Recorder</string>
-    <string name="menu_act4">Connections</string>
+    <string name="menu_act4">Device</string>
 
     <string name="action_add">Add</string>
     <string name="action_delete">Delete</string>

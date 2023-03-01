@@ -13,11 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aut2_03.R;
@@ -28,6 +27,9 @@ import com.example.aut2_03.R;
  * create an instance of this fragment.
  */
 public class Fragment2 extends Fragment {
+
+    public static final int DARK = 100;
+    public static final int BRIGHT = 2000;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,13 +85,13 @@ public class Fragment2 extends Fragment {
         return inflater.inflate(R.layout.fragment_2, container, false);
     }
 
-    EditText editText;
+    TextView lxView;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        editText = getView().findViewById(R.id.text33);
+        lxView = getView().findViewById(R.id.act4_frag2_txt);
         root = getView().findViewById(R.id.root);
-        //getActivity().getSystemService(SENSOR_SERVICE);
+
         sensorManager = (SensorManager) getContext().getSystemService(SENSOR_SERVICE);
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
@@ -101,10 +103,15 @@ public class Fragment2 extends Fragment {
         lightEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                float value = sensorEvent.values[0];
-               // getSupportActionBar().setTitle("Luminosidad : " + value + " lx");
-                editText.setText("Luminosidad: " + String.valueOf(value));
+                double value = sensorEvent.values[0];
 
+                if(value < DARK){
+                    lxView.setText("Luminosidad: " + String.valueOf(value) + " lx\nDARK");
+                }else if(value >= DARK && value < BRIGHT){
+                    lxView.setText("Luminosidad: " + String.valueOf(value) + " lx\nMEDIUM");
+                }else if(value >= BRIGHT){
+                    lxView.setText("Luminosidad: " + String.valueOf(value) + " lx\nBRIGHT");
+                }
 
                 int newValue = (int) (255f * value / valormax);
                 root.setBackgroundColor(Color.rgb(newValue, newValue, newValue));
@@ -112,11 +119,8 @@ public class Fragment2 extends Fragment {
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int i) {
-
             }
         };
-
-
     }
 
     @Override

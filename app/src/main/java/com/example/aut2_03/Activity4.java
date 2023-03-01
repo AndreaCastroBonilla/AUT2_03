@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.aut2_03.fragments.Fragment1;
 import com.example.aut2_03.fragments.Fragment2;
 import com.example.aut2_03.fragments.Fragment3;
+import com.example.aut2_03.fragments.Fragment4;
 import com.example.aut2_03.fragments.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -90,6 +91,7 @@ public class Activity4 extends Fragment {
         viewPagerAdapter.addFragment(new Fragment1());
         viewPagerAdapter.addFragment(new Fragment2());
         viewPagerAdapter.addFragment(new Fragment3());
+        viewPagerAdapter.addFragment(new Fragment4());
 
         viewPager2.setAdapter(viewPagerAdapter);
 
@@ -99,13 +101,16 @@ public class Activity4 extends Fragment {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 switch (position){
                     case 0:
-                        tab.setText("RESOLUTION");
+                        tab.setText("RES");
                         break;
                     case 1:
-                        tab.setText("F2");
+                        tab.setText("BRI");
+                        break;
+                    case 2:
+                        tab.setText("BAT");
                         break;
                     case 3:
-                        tab.setText("F3");
+                        tab.setText("LOC");
                         break;
                 }
 

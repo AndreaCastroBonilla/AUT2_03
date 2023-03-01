@@ -49,35 +49,5 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"/>
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageButton
-                android:id="@+id/imageButtonSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#00FFFFFF"
-                android:src="@drawable/diskette" />
-
-            <ImageButton
-                android:id="@+id/imageButtonCancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/imageButtonSave"
-                android:backgroundTint="#00FFFFFF"
-                android:src="@drawable/cancel"/>
-        </RelativeLayout>
-
-
-    </FrameLayout>
-
-
-
 </LinearLayout>
 

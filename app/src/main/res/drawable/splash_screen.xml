@@ -5,10 +5,7 @@
     <item android:drawable="@drawable/bg_gradient"/>
 
     <item
-        android:left="150dp"
-        android:right="150dp"
-        android:top="305dp"
-        android:bottom="305dp">
-        <bitmap android:src="@drawable/travel"/>
+        android:gravity="center">
+        <bitmap android:src="@drawable/travel128"/>
     </item>
 </layer-list>

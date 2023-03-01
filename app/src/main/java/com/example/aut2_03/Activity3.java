@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -86,7 +87,7 @@ public class Activity3 extends Fragment {
 
     private MediaRecorder grabacion;
     private String archivoSalida = null;
-    private Button btnRecorder,btnPlay;
+    private ImageButton btnRecorder,btnPlay;
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -104,7 +105,7 @@ public class Activity3 extends Fragment {
 
     }
 
-   /* public void grabar(View view){
+    public void grabar(View view){
         if(grabacion == null){
             archivoSalida = Environment.getExternalStorageDirectory().getAbsolutePath() + "/grabacion.mp3";
             grabacion = new MediaRecorder();
@@ -152,9 +153,9 @@ public class Activity3 extends Fragment {
 
 
     }
-*/
 
-    int peticion = 1;
+
+  /*  int peticion = 1;
     Uri url1;
    public void grabar(View v) {
        Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
@@ -172,4 +173,6 @@ public class Activity3 extends Fragment {
         }
     }
 
+
+   */
 }

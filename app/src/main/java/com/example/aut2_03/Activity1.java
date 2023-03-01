@@ -127,10 +127,10 @@ public class Activity1 extends Fragment {
         txtNombre = getView().findViewById(R.id.textNombre);
         txtPais = getView().findViewById(R.id.textPais);
         txtIdioma = getView().findViewById(R.id.textIdioma);
-
+        DbTravel dbTravel = new DbTravel(getContext());
         switch (item.getItemId()){
             case R.id.add:
-                DbTravel dbTravel = new DbTravel(getContext());
+
                 long res = dbTravel.insertar(txtId.getText().toString(),txtNombre.getText().toString(),txtPais.getText().toString(),txtIdioma.getText().toString());
 
                 if(res > 0){
@@ -142,8 +142,18 @@ public class Activity1 extends Fragment {
                 return true;
 
             case R.id.delete:
-                Toast.makeText(getContext(), "DELETE", Toast.LENGTH_SHORT).show();
+
+                boolean res2 = dbTravel.modificarDato(0,txtId.getText().toString(),txtNombre.getText().toString(),txtPais.getText().toString(),txtIdioma.getText().toString());
+
+
+                if(res2){
+                    Toast.makeText(getContext(), "DELETE", Toast.LENGTH_SHORT).show();
+                    clean();
+                }else {
+                    Toast.makeText(getContext(), "DELETE FAILS", Toast.LENGTH_SHORT).show();
+                }
                 return  true;
+
             case R.id.modify:
                 Toast.makeText(getContext(), "MODIFY", Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(getContext(),EditarActivity.class);

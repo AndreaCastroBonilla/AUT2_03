@@ -81,7 +81,7 @@ public class Fragment1 extends Fragment {
         int width = metrics.widthPixels; // ancho absoluto en pixels
         int height = metrics.heightPixels; // alto absoluto en pixels
 
-        textView.setText("Ancho: " + String.valueOf(width) + "px\nAlto: " + String.valueOf(height) + "px");
+        textView.setText("Width: " + String.valueOf(width) + "px\nHeight: " + String.valueOf(height) + "px");
 
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/act_background"
+    android:background="@drawable/turquoise"
     tools:context=".Activity3">
 
     <ImageView
@@ -31,7 +31,7 @@
             android:contentDescription="record"
             android:src="@drawable/microphone" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             android:onClick="grabar"
             app:iconTint="#00FFFFFF" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

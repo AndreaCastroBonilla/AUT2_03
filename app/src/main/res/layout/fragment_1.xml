@@ -14,7 +14,7 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
-        android:text="DEVICE RESOLUTION" />
+        android:text="RESOLUTION" />
 
     <TextView
         android:id="@+id/act4_frag1_txt"

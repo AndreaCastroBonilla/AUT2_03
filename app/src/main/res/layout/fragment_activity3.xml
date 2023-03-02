@@ -53,7 +53,7 @@
             android:background="@drawable/play"
             android:backgroundTint="#000000"
             android:contentDescription="play"
-            android:onClick="reproducir"
+            android:onClick="play"
             android:src="@drawable/play" />
 
 

@@ -131,13 +131,17 @@ public class Activity1 extends Fragment {
         switch (item.getItemId()){
             case R.id.add:
 
-                long res = dbTravel.insertar(txtId.getText().toString(),txtNombre.getText().toString(),txtPais.getText().toString(),txtIdioma.getText().toString());
+                if(txtId.getText().toString().length() == 3){
+                    long res = dbTravel.insertar(txtId.getText().toString(),txtNombre.getText().toString(),txtPais.getText().toString(),txtIdioma.getText().toString());
 
-                if(res > 0){
-                    Toast.makeText(getContext(), "GUARDADO CORRECTO :)", Toast.LENGTH_SHORT).show();
-                    clean();
+                    if(res > 0){
+                        Toast.makeText(getContext(), "GUARDADO CORRECTO :)", Toast.LENGTH_SHORT).show();
+                        clean();
+                    }else {
+                        Toast.makeText(getContext(), "CÓDIGO INCORRECTO :(", Toast.LENGTH_SHORT).show();
+                    }
                 }else {
-                    Toast.makeText(getContext(), "CÓDIGO OBLIGATORIO :(", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "EL CÓDIGO DEBE CONTENER 3 CARACTERES", Toast.LENGTH_SHORT).show();
                 }
                 return true;
 
@@ -145,19 +149,18 @@ public class Activity1 extends Fragment {
 
                 boolean res2 = dbTravel.modificarDato(0,txtId.getText().toString(),txtNombre.getText().toString(),txtPais.getText().toString(),txtIdioma.getText().toString());
 
-
                 if(res2){
                     Toast.makeText(getContext(), "DELETE", Toast.LENGTH_SHORT).show();
                     clean();
                 }else {
-                    Toast.makeText(getContext(), "DELETE FAILS", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "DELETE FAILS :(", Toast.LENGTH_SHORT).show();
                 }
                 return  true;
 
             case R.id.modify:
-                Toast.makeText(getContext(), "MODIFY", Toast.LENGTH_SHORT).show();
-                Intent intent= new Intent(getContext(),EditarActivity.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "SHOULD MODIFY :(", Toast.LENGTH_SHORT).show();
+                //Intent intent= new Intent(getContext(),EditarActivity.class);
+                //startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

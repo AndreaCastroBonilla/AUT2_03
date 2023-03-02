@@ -97,9 +97,9 @@ public class Activity3 extends Fragment {
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO}, 1000);
-            Toast.makeText(getContext(), "...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "PERMISSIONS ok", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(getContext(), ":(...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "PERMISSIONS fail :(", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -118,7 +118,7 @@ public class Activity3 extends Fragment {
                 grabacion.prepare();
                 grabacion.start();
                 //btnRecorder.setBackgroundColor(Color.rgb(255,0,0));
-                Toast.makeText(getContext(), "GRABANDO...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "RECORDING...", Toast.LENGTH_SHORT).show();
 
             }catch (IOException e) {
             }
@@ -130,7 +130,7 @@ public class Activity3 extends Fragment {
             grabacion.release();
             grabacion = null;
            // btnRecorder.setBackgroundColor(Color.rgb(0,0,255));
-            Toast.makeText(getContext(), "GRABANCIÓN FINALIZADA :)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "RECORDING FINISHED :)", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -143,36 +143,14 @@ public class Activity3 extends Fragment {
                 mediaPlayer.setDataSource(archivoSalida);
                 mediaPlayer.prepare();
                 mediaPlayer.start();
-                Toast.makeText(getContext(), "Reproduciendo audio :)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "REPRODUCING RECORGIND...", Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
             }
 
         }else {
-            Toast.makeText(getContext(), "Necesita grabar audio :)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "MUST RECORD AN AUDIO :)", Toast.LENGTH_SHORT).show();
         }
 
 
     }
-
-
-  /*  int peticion = 1;
-    Uri url1;
-   public void grabar(View v) {
-       Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-       startActivityForResult(intent, peticion);
-   }
-
-    public void reproducir(View v) {
-        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), url1);
-        mediaPlayer.start();
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == 0 && requestCode == peticion) {
-            url1 = data.getData();
-        }
-    }
-
-
-   */
 }

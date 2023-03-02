@@ -30,6 +30,4 @@
         android:name="com.example.aut2_03.Activity4"
         android:label="Connections"
         tools:layout="@layout/fragment_activity4" />
-
-
 </navigation>

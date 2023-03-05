@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/imageMusic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="201dp"
+        android:layout_height="188dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/music" />
 
     <RelativeLayout
@@ -21,26 +21,15 @@
         android:layout_below="@+id/imageMusic">
 
         <ImageButton
-            android:id="@+id/btnRecord"
+            android:id="@+id/btnStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
             android:layout_marginBottom="20dp"
-            android:background="#00FFFFFF"
-            android:contentDescription="record"
-            android:src="@drawable/microphone" />
-
-        <ImageButton
-            android:id="@+id/btnStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnRecord"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/stop"
             android:backgroundTint="#000000"
             android:contentDescription="stop"
-            android:onClick="grabar"
             app:iconTint="#00FFFFFF" />
 
         <ImageButton
@@ -53,10 +42,7 @@
             android:background="@drawable/play"
             android:backgroundTint="#000000"
             android:contentDescription="play"
-            android:onClick="play"
             android:src="@drawable/play" />
-
-
     </RelativeLayout>
 
 </RelativeLayout>

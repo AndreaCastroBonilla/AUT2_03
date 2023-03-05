@@ -29,12 +29,14 @@ public class ListaTravelAdapter extends RecyclerView.Adapter<ListaTravelAdapter.
 
     @NonNull
     @Override
+    //CARGAR LA VISTA
     public TravelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item,null,false);
         return new TravelViewHolder(view);
     }
 
     @Override
+    //OBTENER LOS DATOS DE LA VISTA
     public void onBindViewHolder(@NonNull TravelViewHolder holder, int position) {
         holder.viewId.setText(listaTravel.get(position).getId());
         holder.viewNombre.setText(listaTravel.get(position).getNombre());
@@ -43,12 +45,13 @@ public class ListaTravelAdapter extends RecyclerView.Adapter<ListaTravelAdapter.
     }
 
     @Override
+    //TAMAÑO DE LA LISTA
     public int getItemCount() {
         return listaTravel.size();
     }
 
+    //CLASE EMBEBIDA QUE VINCULA LAS VARIABLES LOCALES CON LOS TEXTVIEW DE LA VISTA
     public class TravelViewHolder extends RecyclerView.ViewHolder {
-
         TextView viewId,viewNombre,viewCapital,viewIdioma;
 
         public TravelViewHolder(@NonNull View itemView) {
@@ -58,19 +61,6 @@ public class ListaTravelAdapter extends RecyclerView.Adapter<ListaTravelAdapter.
             viewNombre = itemView.findViewById(R.id.viewPais);
             viewCapital = itemView.findViewById(R.id.viewCapital);
             viewIdioma = itemView.findViewById(R.id.viewIdioma);
-
-            /*itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Context context = view.getContext();
-                    Intent intent = new Intent(context, VerActivity.class);
-                    intent.putExtra("ID",listaTravel.get(getAdapterPosition()).getId());
-                    Toast.makeText(context, ":(", Toast.LENGTH_SHORT).show();
-                    context.startActivity(intent);
-                }
-            });
-
-             */
         }
     }
 }

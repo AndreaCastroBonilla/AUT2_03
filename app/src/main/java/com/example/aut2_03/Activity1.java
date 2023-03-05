@@ -24,22 +24,15 @@ import android.widget.Toast;
 import db.DbHelper;
 import db.DbTravel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Activity1#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Activity1 extends Fragment {
 
     private EditText txtId, txtNombre, txtPais, txtIdioma;
     private ImageButton saveBtn, cancelBtn;
+    private Button createBtn;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -47,15 +40,6 @@ public class Activity1 extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Activity1.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Activity1 newInstance(String param1, String param2) {
         Activity1 fragment = new Activity1();
         Bundle args = new Bundle();
@@ -83,7 +67,7 @@ public class Activity1 extends Fragment {
         return inflater.inflate(R.layout.fragment_activity1, container, false);
     }
 
-    private Button createBtn;
+
 
 
 
@@ -104,11 +88,7 @@ public class Activity1 extends Fragment {
                 }
             }
        });
-
         */
-
-
-
     }
 
 
@@ -130,10 +110,11 @@ public class Activity1 extends Fragment {
         DbTravel dbTravel = new DbTravel(getContext());
         switch (item.getItemId()){
             case R.id.add:
-
+                //comprobación del tamaño del id
                 if(txtId.getText().toString().length() == 3){
                     long res = dbTravel.insertar(txtId.getText().toString(),txtNombre.getText().toString(),txtPais.getText().toString(),txtIdioma.getText().toString());
 
+                    //comprobación del guardado
                     if(res > 0){
                         Toast.makeText(getContext(), "GUARDADO CORRECTO :)", Toast.LENGTH_SHORT).show();
                         clean();
@@ -146,9 +127,9 @@ public class Activity1 extends Fragment {
                 return true;
 
             case R.id.delete:
-
                 boolean res2 = dbTravel.modificarDato(0,txtId.getText().toString(),txtNombre.getText().toString(),txtPais.getText().toString(),txtIdioma.getText().toString());
 
+                //comprobación del borrado
                 if(res2){
                     Toast.makeText(getContext(), "DELETE", Toast.LENGTH_SHORT).show();
                     clean();
@@ -167,6 +148,8 @@ public class Activity1 extends Fragment {
     }
 
 }
+
+    //MÉTODO QUE LIMPIA LOS CAMPOS
     private void clean(){
         txtId.setText("");
         txtNombre.setText("");

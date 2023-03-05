@@ -82,28 +82,29 @@ public class Fragment4 extends Fragment {
     }
 
     private FusedLocationProviderClient fusedLocationClient;
-    TextView txtLocation;
+    private TextView txtLocation;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         txtLocation = getView().findViewById(R.id.act4_frag4_txt);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
 
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener((Executor) this, new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
-                        // Got last known location. In some rare situations this can be null.
+                        //última localización
                         txtLocation.setText(String.valueOf(location));
                         if (location != null) {
-                            // Logic to handle location object
+                            //si no la encuentra, se muestra null
                             txtLocation.setText("null");
                         }
                     }
                 });
-
     }
 }

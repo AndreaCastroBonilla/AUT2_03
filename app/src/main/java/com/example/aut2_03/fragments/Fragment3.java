@@ -78,7 +78,7 @@ public class Fragment3 extends Fragment {
         return inflater.inflate(R.layout.fragment_3, container, false);
     }
 
-    TextView txtBattery;
+    private TextView txtBattery;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -87,12 +87,12 @@ public class Fragment3 extends Fragment {
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = getContext().registerReceiver(null, ifilter);
 
-        // Are we charging / charged?
+        //Comprobación para saber si está cargandi
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
                 status == BatteryManager.BATTERY_STATUS_FULL;
 
-        // How are we charging?
+        //En caso afirmativo, comprobar el tipo de conexión
         int chargePlug = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
         boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
         boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;

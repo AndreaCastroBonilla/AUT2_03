@@ -85,7 +85,7 @@ public class Fragment2 extends Fragment {
         return inflater.inflate(R.layout.fragment_2, container, false);
     }
 
-    TextView lxView;
+    private TextView lxView;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -96,7 +96,7 @@ public class Fragment2 extends Fragment {
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
         if (lightSensor == null) {
-            Toast.makeText(getContext(), "El dispositivo no tiene sensor de luz!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Device hasn't light sensor!", Toast.LENGTH_SHORT).show();
         }
         valormax = lightSensor.getMaximumRange();
 

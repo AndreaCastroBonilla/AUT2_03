@@ -81,6 +81,7 @@ public class Activity4 extends Fragment {
 
     ViewPagerAdapter viewPagerAdapter;
     ViewPager2 viewPager2;
+    //CARGAR LAS DISTINTAS OPCIONES DEL TABLAYOUT
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -113,7 +114,6 @@ public class Activity4 extends Fragment {
                         tab.setText("LOC");
                         break;
                 }
-
             }
         }).attach();
 
